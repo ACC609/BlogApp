@@ -27,15 +27,16 @@ class ArtistasResource extends Resource
             ->schema([
                 Section::make('Criar Artista')
                     ->schema([
+                        Forms\Components\TextInput::make('nome')
+                            ->required()
+                            ->maxLength(255),
                         Forms\Components\FileUpload::make('imagem')
                             ->required()
                             ->image()
                             ->directory('Artistas'),
-                        Forms\Components\TextInput::make('nome')
-                            ->required()
-                            ->maxLength(255),
                         Forms\Components\Toggle::make('status')
                             ->required(),
+
                     ])
             ]);
     }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('musicas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_artista')->constrained('artistas')->cascadeOnDelete();
-            $table->foreignId('id_categoria')->constrained('categorias')->cascadeOnDelete();
+            $table->foreignId('id_categoria')->constrained('categorias')->cascadeOnDelete()->nullable();
+            $table->string('artistas')->nullable();
             $table->string('imagem');
             $table->string('slug');
             $table->string('descricao');
@@ -22,7 +22,9 @@ return new class extends Migration
             $table->string('ano');
             $table->string('genero');
             $table->string('musica');
-            $table->boolean('status');
+            $table->boolean('status')->default(true);
+            $table->boolean('destaques')->default(true);
+            $table->boolean('mensal')->default(true);
             $table->timestamps();
         });
     }

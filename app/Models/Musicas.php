@@ -9,12 +9,7 @@ class Musicas extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id_artista', 'id_categoria', 'imagem', 'slug', 'descricao', 'titulo', 'ano', 'genero', 'musica', 'status'];
-
-    public function artista()
-    {
-        return $this->belongsTo(Artistas::class, 'id_artista');
-    }
+    protected $fillable = ['id_categoria', 'artistas', 'imagem', 'slug', 'descricao', 'titulo', 'ano', 'genero', 'musica', 'status', 'destaques', 'mensal'];
 
     public function categoria()
     {
